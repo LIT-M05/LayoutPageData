@@ -6,25 +6,30 @@ using System.Web.Mvc;
 
 namespace WebApplication24.Controllers
 {
+    //[LayoutData]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Foo = "foobar";
+            ViewBag.person = new Person
+            {
+                Name = "Avrumi",
+                Age = 37
+            };
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+    }
+
+    public class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
     }
 }
